@@ -136,7 +136,6 @@ body.bloqueado{overflow:hidden}
 /* ===== MODO LIGERO: equipos modestos ===== */
 html.lite .paper-bg{background-image:none;background:linear-gradient(180deg,#ebe5d6,#e2dbc8)}
 html.lite .paper-bg::before{display:none}
-html.lite .progress{display:none}
 
 html.lite .brand{animation:fadeUp .9s both}
 html.lite .mast-top,html.lite .brand-sub,html.lite .nav{animation:none}
