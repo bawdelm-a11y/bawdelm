@@ -2,7 +2,7 @@
    AQUÍ EDITAS TU PORTFOLIO
    ========================================================= */
 
-const sobreMi = "Soy Bawdel Alejandro, editor de video y creador digital. Me encanta convertir ideas en videos con ritmo, color y personalidad. Trabajo con reels, videos largos para YouTube, motion graphics y diseño de miniaturas.";
+const sobreMi = "Editor de video profesional | Premiere Pro y After Effects | Cámara, fotografía y audio (Audition). Responsable, organizado y disponible para proyectos.";
 
 // id = lo que va después de "v=" en el link de YouTube (o después de /shorts/)
 const reels = [
