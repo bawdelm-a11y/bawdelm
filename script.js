@@ -32,11 +32,18 @@ const videosLargos = [
    NO TOQUES NADA DE AQUÍ PARA ABAJO
    ========================================================= */
 
+const esLite = document.documentElement.classList.contains("lite");
+
 function extraerId(texto = "") {
   const t = texto.trim();
   const m = t.match(/(?:v=|youtu\.be\/|shorts\/|embed\/|live\/)([A-Za-z0-9_-]{11})/);
   if (m) return m[1];
   return /^[A-Za-z0-9_-]{11}$/.test(t) ? t : "";
+}
+
+function esc(s = "") {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
 document.getElementById("about-text").textContent = sobreMi;
@@ -50,14 +57,17 @@ const player = document.getElementById("player");
 function abrir(item, vertical) {
   player.className = "player" + (vertical ? " vertical" : "");
   player.innerHTML = item.archivo
-    ? `<video src="${item.archivo}" controls autoplay playsinline></video>`
-    : `<iframe src="https://www.youtube-nocookie.com/embed/${item._id}?autoplay=1&rel=0"
+    ? `<video src="${esc(item.archivo)}" controls autoplay playsinline preload="metadata"></video>`
+    : `<iframe title="${esc(item.titulo)}"
+        src="https://www.youtube-nocookie.com/embed/${item._id}?autoplay=1&rel=0&playsinline=1"
         allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
   modal.classList.add("open");
+  document.body.classList.add("bloqueado");
 }
 
 function cerrar() {
   modal.classList.remove("open");
+  document.body.classList.remove("bloqueado");
   player.innerHTML = "";
 }
 
@@ -65,29 +75,40 @@ const inclinaciones = [-1.4, 0.9, -0.6, 1.3, -1, 0.6];
 
 function pintar(lista, contenedorId, vertical, mensajeVacio) {
   const cont = document.getElementById(contenedorId);
+  const frag = document.createDocumentFragment();
   let n = 0;
+
   lista.forEach(item => {
     item._id = extraerId(item.link || item.id);
     if (!item._id && !item.archivo) return;
+
     const card = document.createElement("div");
     card.className = "card reveal";
     card.style.setProperty("--r", inclinaciones[n % inclinaciones.length] + "deg");
-    card.style.setProperty("--d", (n * 0.15) + "s");
+    card.style.setProperty("--d", (n * 0.12) + "s");
+
     const img = item.portada || `https://img.youtube.com/vi/${item._id}/hqdefault.jpg`;
+    const w = vertical ? 360 : 480, h = vertical ? 480 : 360;
     card.innerHTML = `
       <div class="media">
-        <img class="thumb" src="${img}" alt="${item.titulo}" loading="lazy">
+        <img class="thumb" src="${esc(img)}" alt="${esc(item.titulo)}"
+             width="${w}" height="${h}" loading="lazy" decoding="async">
         <div class="play"></div>
       </div>
-      <div class="info"><h3>${item.titulo}</h3><p>${item.desc || ""}</p></div>`;
+      <div class="info"><h3>${esc(item.titulo)}</h3><p>${esc(item.desc || "")}</p></div>`;
     card.addEventListener("click", () => abrir(item, vertical));
-    cont.appendChild(card);
+    frag.appendChild(card);
     n++;
   });
+
   if (n === 0) {
-    cont.innerHTML = `<p class="empty reveal">${mensajeVacio}</p>`;
+    const p = document.createElement("p");
+    p.className = "empty reveal";
+    p.textContent = mensajeVacio;
+    frag.appendChild(p);
     cont.style.display = "block";
   }
+  cont.appendChild(frag);
 }
 
 pintar(reels, "reels-grid", true, "Próximamente: nuevos reels en camino.");
@@ -100,28 +121,33 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") cerrar(); })
 document.querySelectorAll(".title, .hint, .lead, .stamp, .links, footer")
   .forEach(el => el.classList.add("reveal"));
 
-const obs = new IntersectionObserver(entradas => {
-  entradas.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add("show"); obs.unobserve(e.target); }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
-
-const barra = document.createElement("div");
-barra.className = "progress";
-document.body.prepend(barra);
-
-let esperando = false;
-function alScroll() {
-  if (esperando) return;
-  esperando = true;
-  requestAnimationFrame(() => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const p = total > 0 ? window.scrollY / total : 0;
-    barra.style.transform = "scaleX(" + p + ")";
-    esperando = false;
-  });
+const elementos = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const obs = new IntersectionObserver(entradas => {
+    entradas.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("show"); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+  elementos.forEach(el => obs.observe(el));
+} else {
+  elementos.forEach(el => el.classList.add("show"));
 }
-window.addEventListener("scroll", alScroll, { passive: true });
-alScroll();
 
+if (!esLite) {
+  const barra = document.createElement("div");
+  barra.className = "progress";
+  document.body.prepend(barra);
+
+  let esperando = false;
+  const alScroll = () => {
+    if (esperando) return;
+    esperando = true;
+    requestAnimationFrame(() => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      barra.style.transform = "scaleX(" + (total > 0 ? window.scrollY / total : 0) + ")";
+      esperando = false;
+    });
+  };
+  window.addEventListener("scroll", alScroll, { passive: true });
+  alScroll();
+}
