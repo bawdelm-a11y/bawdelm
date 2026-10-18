@@ -110,13 +110,18 @@ document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
 const barra = document.createElement("div");
 barra.className = "progress";
 document.body.prepend(barra);
-const fondo = document.querySelector(".paper-bg");
 
+let esperando = false;
 function alScroll() {
-  const y = window.scrollY;
-  const total = document.documentElement.scrollHeight - window.innerHeight;
-  barra.style.width = (total > 0 ? (y / total) * 100 : 0) + "%";
-  fondo.style.backgroundPosition = "0 " + (-y * 0.12) + "px";
+  if (esperando) return;
+  esperando = true;
+  requestAnimationFrame(() => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const p = total > 0 ? window.scrollY / total : 0;
+    barra.style.transform = "scaleX(" + p + ")";
+    esperando = false;
+  });
 }
 window.addEventListener("scroll", alScroll, { passive: true });
 alScroll();
+
