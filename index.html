@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bawdel Alejandro | Editor de video</title>
   <meta name="description" content="Portfolio de Bawdel Alejandro: edición de video, reels y videos largos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,500&family=Libre+Franklin:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="bg-glow g1"></div>
-  <div class="bg-glow g2"></div>
-  <div class="grain"></div>
+  <div class="paper-bg"></div>
 
-  <header class="nav">
-    <a href="#inicio" class="logo">BA</a>
-    <nav>
+  <header class="masthead">
+    <div class="mast-top">
+      <span id="fecha"></span>
+      <span>Portfolio audiovisual</span>
+      <span>Edición Nº 1</span>
+    </div>
+    <h1 class="brand">Bawdel Alejandro</h1>
+    <p class="brand-sub">Editor de video · Reels · YouTube</p>
+    <nav class="nav">
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#reels">Reels</a>
       <a href="#videos-largos">Videos largos</a>
@@ -23,60 +28,43 @@
     </nav>
   </header>
 
-  <section class="hero" id="inicio">
-    <p class="tag">// EDITOR DE VIDEO &amp; CREADOR DIGITAL</p>
-    <h1 class="glitch" data-text="Bawdel Alejandro">Bawdel Alejandro</h1>
-    <p class="sub">Cortes, ritmo y color para historias que se quedan en la cabeza.</p>
-    <a href="#reels" class="btn">Ver mi trabajo ↓</a>
-  </section>
+  <main>
+    <section class="section about" id="sobre-mi">
+      <h2 class="title">Sobre mí</h2>
+      <div class="about-grid">
+        <p class="lead" id="about-text"></p>
+        <aside class="stamp">
+          <span>Editor</span>
+          <strong>Aprobado</strong>
+          <span>Calidad garantizada</span>
+        </aside>
+      </div>
+    </section>
 
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>EDICIÓN ✦ MOTION GRAPHICS ✦ REELS ✦ YOUTUBE ✦ MINIATURAS ✦ GUIONES ✦ </span>
-      <span>EDICIÓN ✦ MOTION GRAPHICS ✦ REELS ✦ YOUTUBE ✦ MINIATURAS ✦ GUIONES ✦ </span>
-    </div>
-  </div>
+    <section class="section" id="reels">
+      <h2 class="title">Reels</h2>
+      <p class="hint">Piezas cortas en formato vertical. Toca una para reproducirla.</p>
+      <div class="grid reels-grid" id="reels-grid"></div>
+    </section>
 
-  <section class="section about" id="sobre-mi">
-    <h2 class="title"><span>01</span> Sobre mí</h2>
-    <div class="about-box">
-      <p id="about-text">
-        Aquí va tu descripción. Cambia este texto por lo que haces, tu estilo,
-        qué programas usas y qué tipo de proyectos te gustan.
-      </p>
-      <ul class="skills">
-        <li>Edición de video</li>
-        <li>Motion graphics</li>
-        <li>Diseño de miniaturas</li>
-        <li>Guiones</li>
-        <li>IA generativa</li>
-      </ul>
-    </div>
-  </section>
+    <section class="section" id="videos-largos">
+      <h2 class="title">Videos largos</h2>
+      <p class="hint">Trabajos para YouTube. Toca uno para reproducirlo.</p>
+      <div class="grid long-grid" id="long-grid"></div>
+    </section>
 
-  <section class="section" id="reels">
-    <h2 class="title"><span>02</span> Reels</h2>
-    <p class="hint">Videos cortos verticales. Haz clic para reproducir.</p>
-    <div class="grid reels-grid" id="reels-grid"></div>
-  </section>
+    <section class="section contact" id="contacto">
+      <h2 class="title">Contacto</h2>
+      <p class="hint">¿Tienes un proyecto en mente? Escríbeme.</p>
+      <div class="links">
+        <a class="btn" href="mailto:tucorreo@ejemplo.com">Correo</a>
+        <a class="btn" href="https://www.youtube.com/@tucanal" target="_blank" rel="noopener">YouTube</a>
+        <a class="btn" href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+  </main>
 
-  <section class="section" id="videos-largos">
-    <h2 class="title"><span>03</span> Videos largos</h2>
-    <p class="hint">Proyectos de YouTube. Haz clic para reproducir.</p>
-    <div class="grid long-grid" id="long-grid"></div>
-  </section>
-
-  <section class="section contact" id="contacto">
-    <h2 class="title"><span>04</span> Contacto</h2>
-    <p>¿Tienes un proyecto en mente? Hablemos.</p>
-    <div class="links">
-      <a class="btn" href="mailto:bawdelm@gmail.com">Correo</a>
-      <a class="btn" href="https://www.youtube.com/@BAWDEL" target="_blank" rel="noopener">YouTube</a>
-      <a class="btn" href="https://www.instagram.com/bawdel_" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </section>
-
-  <footer>© <span id="year"></span> Bawdel Alejandro</footer>
+  <footer>© <span id="year"></span> Bawdel Alejandro · Todos los derechos reservados</footer>
 
   <div class="modal" id="modal">
     <button class="close" id="close" aria-label="Cerrar">✕</button>
