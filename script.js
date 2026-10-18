@@ -9,8 +9,7 @@ const reels = [
   { link: "https://www.youtube.com/shorts/N6PrpC4cDo8", titulo: "Reel 01", desc: "Estilo de edición corta para redes sociales" },
   { link: "https://www.youtube.com/shorts/wDQ1AXifwRw", titulo: "Reel 02", desc: "Estilo de edición para promocion de agencias" },
   { link: "https://www.youtube.com/shorts/iJp8xmSKNxE", titulo: "Reel 03", desc: "Estilo de edición con máscaras de capa" },
-  { link: "https://www.youtube.com/shorts/m5bNUOPuQ8w", titulo: "Reel 03", desc: "Estilo de edición promocional para institución" },
-];
+  { link: "https://www.youtube.com/shorts/m5bNUOPuQ8w", titulo: "Reel 04", desc: "Estilo de edición promocional para institución" },
 ];
 
 const videosLargos = [
