@@ -11,8 +11,8 @@ const reels = [
 ];
 
 const videosLargos = [
-  { id: "AQUI_ID_3", titulo: "Video 1", desc: "Descripción corta" },
-  { id: "AQUI_ID_4", titulo: "Video 2", desc: "Descripción corta" },
+  { id: "PcaRM7BYDYs&t=115s", titulo: "Proyecto creativo", desc: "Ejemplo de vídeo largo" },
+  { id: "F7hQZL7saYs&t=89s", titulo: "Proyecto creativo", desc: "Otro ejemplo de vídeo largo" },
 ];
 
 /* =========================================================
