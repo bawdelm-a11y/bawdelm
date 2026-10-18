@@ -135,19 +135,19 @@ if ("IntersectionObserver" in window) {
 
 if (!esLite) {
   const barra = document.createElement("div");
-  barra.className = "progress";
-  document.body.prepend(barra);
+barra.className = "progress";
+document.body.prepend(barra);
 
-  let esperando = false;
-  const alScroll = () => {
-    if (esperando) return;
-    esperando = true;
-    requestAnimationFrame(() => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      barra.style.transform = "scaleX(" + (total > 0 ? window.scrollY / total : 0) + ")";
-      esperando = false;
-    });
-  };
-  window.addEventListener("scroll", alScroll, { passive: true });
-  alScroll();
+let esperando = false;
+const alScroll = () => {
+  if (esperando) return;
+  esperando = true;
+  requestAnimationFrame(() => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.transform = "scaleX(" + (total > 0 ? window.scrollY / total : 0) + ")";
+    esperando = false;
+  });
+};
+window.addEventListener("scroll", alScroll, { passive: true });
+alScroll();
 }
