@@ -6,15 +6,27 @@
 const sobreMi = "Soy Bawdel Alejandro, editor de video y creador digital. Convierto ideas en videos con ritmo, color y personalidad. Trabajo reels, videos largos para YouTube, motion graphics y diseño de miniaturas.";
 
 const reels = [
-  { link: "PEGA_AQUI_EL_LINK_1", titulo: "Reel 1", desc: "Descripción corta" },
-  { link: "PEGA_AQUI_EL_LINK_2", titulo: "Reel 2", desc: "Descripción corta" },
+  // Aún sin reels. Cuando tengas, pega aquí líneas como:
+  // { link: "LINK_DEL_SHORT", titulo: "Reel 1", desc: "Descripción corta" },
 ];
 
 const videosLargos = [
-  { link: "PEGA_AQUI_EL_LINK_3", titulo: "Video 1", desc: "Descripción corta" },
-  { link: "PEGA_AQUI_EL_LINK_4", titulo: "Video 2", desc: "Descripción corta" },
+  {
+    link: "https://www.youtube.com/watch?v=PcaRM7BYDYs",
+    titulo: "Video largo · Formato horizontal",
+    desc: "Edición con ritmo narrativo estilo Videoessay"
+  },
+  {
+    link: "https://www.youtube.com/watch?v=F7hQZL7saYs",
+    titulo: "Video largo · Formato horizontal",
+    desc: "Montaje dinámico con corrección de color, diseño sonoro y gráficos que refuerzan cada idea."
+  },
+  {
+    link: "https://www.youtube.com/watch?v=FEx-VjcRp4M",
+    titulo: "Video largo · Formato horizontal",
+    desc: "Estructura de guion, transiciones suaves y detalles visuales que dan identidad y personalidad al video."
+  },
 ];
-
 /* =========================================================
    NO TOQUES NADA DE AQUÍ PARA ABAJO
    ========================================================= */
