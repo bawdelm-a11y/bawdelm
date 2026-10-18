@@ -156,7 +156,7 @@ html.lite .card.show{animation:riseSoft .6s ease-out var(--d,0s) backwards}
 }}
 
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .reveal{opacity:1!important;translate:none!important}
-  .title::before,.title::after{transform:scaleX(1)!important}
+  .brand{animation:fadeUp .8s both}
+  .card.show{animation:fadeUp .5s ease-out var(--d,0s) backwards}
+  .reveal{translate:0 0}
 }
