@@ -3,11 +3,14 @@
    Pega el LINK COMPLETO de YouTube en "link".
    ========================================================= */
 
-const sobreMi = "Bawdel Alejandro,Editor de video profesional | Premiere Pro y After Effects | Cámara, fotografía y audio (Audition). Responsable, organizado y disponible para proyectos.";
+const sobreMi = "Bawdel Alejandro, Editor de video profesional | Premiere Pro y After Effects | Cámara, fotografía y audio (Audition). Responsable, organizado y disponible para proyectos.";
 
 const reels = [
-  // Aún sin reels. Cuando tengas, agrega líneas como:
-  // { link: "LINK_DEL_SHORT", titulo: "Reel 1", desc: "Descripción corta" },
+  { link: "https://www.youtube.com/shorts/N6PrpC4cDo8", titulo: "Reel 01", desc: "Estilo de edición corta para redes sociales" },
+  { link: "https://www.youtube.com/shorts/wDQ1AXifwRw", titulo: "Reel 02", desc: "Estilo de edición para promocion de agencias" },
+  { link: "https://www.youtube.com/shorts/iJp8xmSKNxE", titulo: "Reel 03", desc: "Estilo de edición con máscaras de capa" },
+  { link: "https://www.youtube.com/shorts/m5bNUOPuQ8w", titulo: "Reel 03", desc: "Estilo de edición promocional para institución" },
+];
 ];
 
 const videosLargos = [
@@ -25,6 +28,11 @@ const videosLargos = [
     link: "https://www.youtube.com/watch?v=FEx-VjcRp4M",
     titulo: "Video largo 03 · Formato horizontal",
     desc: "Estructura de guion, transiciones suaves y detalles visuales que dan identidad y personalidad al video."
+  },
+   {
+    link: "https://www.youtube.com/watch?v=XxKiRN1qnpc",
+    titulo: "Video largo 04 · Formato horizontal",
+    desc: "Vídeo estilo documental educativo, para entender el tema expuesto"
   },
 ];
 
