@@ -133,19 +133,27 @@ body.bloqueado{overflow:hidden}
 }
 
 /* ===== MODO LIGERO: equipos modestos ===== */
+/* ===== MODO LIGERO: equipos modestos ===== */
 html.lite .paper-bg{background-image:none;background:linear-gradient(180deg,#ebe5d6,#e2dbc8)}
 html.lite .paper-bg::before{display:none}
 html.lite .progress{display:none}
-html.lite .brand{animation:fadeUp .8s both}
+
+html.lite .brand{animation:fadeUp .9s both}
 html.lite .mast-top,html.lite .brand-sub,html.lite .nav{animation:none}
-html.lite .title::before,html.lite .title::after{transform:scaleX(1);transition:none}
-html.lite .stamp.show{animation:fadeUp .5s backwards}
+
+html.lite .reveal{translate:0 20px;transition:opacity .6s ease,translate .6s ease}
+html.lite .reveal.show{translate:0 0}
+html.lite .card.reveal{translate:0 0}
+
+html.lite .stamp.show{animation:fadeUp .6s ease-out .3s backwards}
+
 html.lite .card{transform:none}
-html.lite .card.show{animation:fadeUp .5s backwards}
 html.lite .card::before{display:none}
-html.lite .thumb{filter:none}
-html.lite .reveal{translate:0 0;transition:opacity .5s ease}
-html.lite .section{content-visibility:auto}
+html.lite .card.show{animation:riseSoft .6s ease-out var(--d,0s) backwards}
+@keyframes riseSoft{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:none}
+}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
