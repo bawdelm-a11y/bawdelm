@@ -133,7 +133,6 @@ body.bloqueado{overflow:hidden}
 }
 
 /* ===== MODO LIGERO: equipos modestos ===== */
-/* ===== MODO LIGERO: equipos modestos ===== */
 html.lite .paper-bg{background-image:none;background:linear-gradient(180deg,#ebe5d6,#e2dbc8)}
 html.lite .paper-bg::before{display:none}
 
@@ -145,8 +144,6 @@ html.lite .reveal.show{translate:0 0}
 
 html.lite .stamp.show{animation:fadeUp .6s ease-out .3s backwards}
 
-
-}}
 
 @media (prefers-reduced-motion:reduce){
   .brand{animation:fadeUp .8s both}
